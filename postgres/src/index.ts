@@ -1,4 +1,6 @@
 import {Client} from "pg";
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import type { Request, Response } from "express";
 
@@ -12,17 +14,13 @@ app.use(express.json());
 //   ssl: { rejectUnauthorized: false }
 // });
 
-
 const pgClient2 = new Client({
-    user: "neondb_owner",
-    password: "npg_dDJMk9cVo1Qv",
-    port : 5432,
-    host: "ep-fragrant-violet-a14m5k04-pooler.ap-southeast-1.aws.neon.tech",
-    database : "neondb",
-     ssl: {
-    rejectUnauthorized: false, 
-  },
-
+  user: process.env.PG_USER,
+  password: process.env.PG_PASSWORD,
+  port: 5432,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  ssl: { rejectUnauthorized: false },
 });
 
 
