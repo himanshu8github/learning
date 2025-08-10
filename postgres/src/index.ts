@@ -42,10 +42,10 @@ app.post("/signup", async (req: Request, res: Response) => {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-  const response = await pgClient2.query(
-  "INSERT INTO users (username, email, password) VALUES ($1, $2, $3)",
-  [username, email, password]
-);
+  const inserQuery = 
+  `INSERT INTO users (username, email, password) VALUES ($1, $2, $3);`
+
+const response = await pgClient2.query(inserQuery, [username, email, password]);
 
 
   res.json({
