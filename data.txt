@@ -1,0 +1,29 @@
+npm install prisma@6.13.0 @prisma/client@6.13.0 --force
+
+$ set PRISMA_BINARIES_MIRROR=https://github.com/prisma/prisma-engines/releases/download
+
+export PRISMA_BINARIES_MIRROR=https://github.com/prisma/prisma-engines/releases/download
+
+
+export PRISMA_BINARIES_MIRROR=https://github.com/prisma/prisma-engines/releases/download
+export PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING=1
+npx prisma generate
+
+
+unset PRISMA_BINARIES_MIRROR
+unset PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING
+npx prisma generate
+npx prisma migrate dev --name init
+npx prisma migrate deploy
+
+
+npx prisma migrate dev --name add-age-to-user
+npx prisma migrate deploy
+
+npm i --save-dev @types/node
+
+
+
+"seed": "node --loader ts-node/esm src/seed.ts"
+
+npx prisma migrate dev --name add-mobileNumber-default

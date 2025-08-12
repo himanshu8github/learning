@@ -1,0 +1,22 @@
+import { PrismaClient } from './generated/prisma/index.js';
+
+const prisma = new PrismaClient();
+
+async function main() {
+  const user = await prisma.users.create({
+    data: {
+      username: "john_doe",
+      email: "john@example.com",
+      password: "hashedpassword",
+      age: 25
+    }
+  });
+  console.log("Inserted:", user);
+}
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(() => prisma.$disconnect());
