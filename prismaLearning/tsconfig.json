@@ -1,8 +1,10 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
+
     // File Layout
-    "rootDir": ".",
+    
+    "rootDir": "./src",
     "outDir": "./dist",
     
 
@@ -42,5 +44,5 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist"],
 }
